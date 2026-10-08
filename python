@@ -1,0 +1,75 @@
+import random
+
+input_list = ["Rock", "Scissor", "Paper"]
+
+user_score = 0
+computer_score = 0
+
+print("====================================")
+print("       ROCK PAPER SCISSORS")
+print("====================================")
+
+while True:
+
+    user_input = input("\nEnter your choice (Rock/Scissor/Paper): ")
+
+    if user_input not in input_list:
+        print("Invalid choice! Please enter Rock, Scissor, or Paper.")
+        continue
+
+    computer_input = random.choice(input_list)
+
+    print("Your choice     :", user_input)
+    print("Computer's choice:", computer_input)
+
+    if user_input == computer_input:
+        print("Result: It's a tie!")
+
+    elif user_input == "Rock":
+        if computer_input == "Scissor":
+            print("Result: You won this round!")
+            user_score = user_score + 1
+        else:
+            print("Result: Computer won this round!")
+            computer_score = computer_score + 1
+
+    elif user_input == "Scissor":
+        if computer_input == "Paper":
+            print("Result: You won this round!")
+            user_score = user_score + 1
+        else:
+            print("Result: Computer won this round!")
+            computer_score = computer_score + 1
+
+    elif user_input == "Paper":
+        if computer_input == "Rock":
+            print("Result: You won this round!")
+            user_score = user_score + 1
+        else:
+            print("Result: Computer won this round!")
+            computer_score = computer_score + 1
+
+    print("------------------------------------")
+    print("Your Score     :", user_score)
+    print("Computer Score :", computer_score)
+    print("------------------------------------")
+
+    quit_game = input("Would you like to quit the game? (yes/no): ")
+
+    if quit_game.lower() == "yes":
+        print("\n====================================")
+        print("           FINAL SCORE")
+        print("====================================")
+        print("Your Score     :", user_score)
+        print("Computer Score :", computer_score)
+
+        if user_score > computer_score:
+            print("Congratulations! You are the overall winner!")
+        elif computer_score > user_score:
+            print("The computer is the overall winner!")
+        else:
+            print("The game ended in an overall tie!")
+
+        print("Thank you for playing!")
+        print("====================================")
+        break
